@@ -44,10 +44,10 @@ $s = microtime(true);
              * 设置 回收数据库连接
              */
             Swoole\Coroutine::defer(function () {
-                $lists = \itxiao6\SwooleDatabase\Utils\Context::get(\itxiao6\SwooleDatabase\PoolManager::class . '_connection') === null ? [] : \itxiao6\SwooleDatabase\Utils\Context::get(\itxiao6\SwooleDatabase\PoolManager::class . '_connection');
-                foreach ($lists as $item) {
-                    \itxiao6\SwooleDatabase\PoolManager::getPool($item['name'])->put($item['pdo']);
-                }
+                /**
+                 * 归还当前协程内的连接
+                 */
+                \itxiao6\SwooleDatabase\PoolManager::recoveryConnection();
             });
             /**
              * 创建表

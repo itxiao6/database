@@ -1,0 +1,31 @@
+{
+  "name": "itxiao6/database",
+  "description": "The Swoole Pool Database package.",
+  "license": "MIT",
+  "homepage": "https://www.itxiao6.top",
+  "keywords": [
+    "Laravel",
+    "Swoole",
+    "Databses",
+    "Sql",
+    "ORM"
+  ],
+  "authors": [
+    {
+      "name": "itxiao6",
+      "email": "itxiao6@qq.com"
+    }
+  ],
+  "require": {
+    "illuminate/database": "v8.8.0",
+    "symfony/console": "^5.1"
+  },
+  "require-dev": {
+    "swoole/ide-helper": "@dev"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "itxiao6\\SwooleDatabase\\": "src/"
+    }
+  }
+}

@@ -41,15 +41,6 @@ $s = microtime(true);
     for ($i = 0; $i < 20; $i++) {
         \Swoole\Coroutine::create(function () {
             /**
-             * 设置 回收数据库连接
-             */
-            Swoole\Coroutine::defer(function () {
-                /**
-                 * 归还当前协程内的连接
-                 */
-                \itxiao6\SwooleDatabase\PoolManager::recoveryConnection();
-            });
-            /**
              * 创建表
              */
 //            \itxiao6\SwooleDatabase\Manager::schema()->create('test',function(\Illuminate\Database\Schema\Blueprint $table){
@@ -66,6 +57,9 @@ $s = microtime(true);
              */
             $lists = \itxiao6\SwooleDatabase\Adapter\Manager::table('bd_live_plan')->first();
             var_dump(boolval($lists));
+            /**
+             * 协程销毁会自动归还连接(不需要手动处理)
+             */
         });
     }
 });

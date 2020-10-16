@@ -30,7 +30,13 @@ class Context
         if ($cid > 0) {
             self::$pool[$cid][$key] = $item;
         }
+    }
 
+    /**
+     * @return bool
+     */
+    static function inCoroutine(){
+        return Coroutine::getuid()>0;
     }
 
     static function delete($key = null)

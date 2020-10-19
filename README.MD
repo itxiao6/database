@@ -3,7 +3,7 @@
 
 #### 1. 引用本包
 ```
-composer require clover-swoole/database:dev-master
+composer require itxiao6/database:dev-master
 ```
 #### 2. 创建`配置`实例
 ```php

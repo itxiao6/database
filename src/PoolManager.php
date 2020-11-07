@@ -3,7 +3,6 @@
 
 namespace itxiao6\SwooleDatabase;
 
-use Swoole\Database\PDOPool;
 
 /**
  * 连接池管理(全局)
@@ -12,7 +11,7 @@ use Swoole\Database\PDOPool;
  */
 class PoolManager
 {
-    protected static array $pool = [];
+    protected static $pool = [];
 
     /**
      * 新增连接池

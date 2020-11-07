@@ -31,6 +31,10 @@ setConfig('default'); // 设置全局访问(默认为default)
  */
 \Swoole\Runtime::enableCoroutine();
 /**
+ * 协程化IO钩子
+ */
+\Swoole\Coroutine::set(['hook_flags' => SWOOLE_HOOK_ALL | SWOOLE_HOOK_CURL]);
+/**
 * 记录开始时间
  */
 $s = microtime(true);
